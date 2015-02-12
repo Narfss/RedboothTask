@@ -34,12 +34,10 @@ public class ActivitiesModelBoundary implements ActivitiesModelPort {
         apiServiceManager.loadActivities(this, token);
     }
 
-    @Override
     public void notifyActivities(ArrayList<ActivityResponse> activitiesResponse) {
         activitiesLogic.notifyActivities(activitiesResponse);
     }
 
-    @Override
     public void notifyError(ErrorType errorType) {
         activitiesLogic.notifyError(errorType);
     }

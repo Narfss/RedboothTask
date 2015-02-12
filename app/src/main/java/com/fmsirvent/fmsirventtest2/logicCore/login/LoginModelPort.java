@@ -5,5 +5,4 @@ package com.fmsirvent.fmsirventtest2.logicCore.login;
  */
 public interface LoginModelPort {
     void setLogic(LoginLogic loginLogic);
-
 }

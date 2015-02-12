@@ -3,7 +3,11 @@ package com.fmsirvent.fmsirventtest2.apiModule;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
+import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelPort;
+import com.fmsirvent.fmsirventtest2.logicCore.createTask.CreateTaskModelBoundary;
+import com.fmsirvent.fmsirventtest2.logicCore.createTask.CreateTaskModelPort;
+import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelPort;
 
 import org.apache.http.Header;
@@ -30,37 +34,53 @@ public class ApiServiceManager {
         return api;
     }
 
-    public void loadActivities(final ActivitiesModelPort activitiesModelPort, String token) {
+    public void loadActivities(final ActivitiesModelBoundary activitiesModelBoundary, String token) {
         getInstance().loadActivities(token,
                 new BaseCallback<ArrayList<ActivityResponse>>() {
                     @Override
                     public void onResponse(Response response) {
-                        activitiesModelPort.notifyActivities((ArrayList<ActivityResponse>) response.getResult());
+                        activitiesModelBoundary.notifyActivities((ArrayList<ActivityResponse>) response.getResult());
                     }
 
                     @Override
                     protected void notifyError(ErrorType errorType) {
-                        activitiesModelPort.notifyError(errorType);
+                        activitiesModelBoundary.notifyError(errorType);
                     }
                 }
         );
 
     }
 
-    public void loadTasks(final TasksModelPort tasksModelPort, String token) {
+    public void loadTasks(final TasksModelBoundary tasksModelBoundary, String token) {
         getInstance().loadTasks(token,
                 new BaseCallback<ArrayList<TaskResponse>>() {
                     @Override
                     public void onResponse(Response response) {
-                        tasksModelPort.notifyTasks((ArrayList<TaskResponse>) response.getResult());
+                        tasksModelBoundary.notifyTasks((ArrayList<TaskResponse>) response.getResult());
                     }
 
                     @Override
                     protected void notifyError(ErrorType errorType) {
-                        tasksModelPort.notifyError(errorType);
+                        tasksModelBoundary.notifyError(errorType);
                     }
                 }
         );
 
+    }
+
+    public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token) {
+        getInstance().createTask(token,
+                new BaseCallback<ArrayList<TaskResponse>>() {
+                    @Override
+                    public void onResponse(Response response) {
+                        createTaskModelBoundary.notifyCreateTask();
+                    }
+
+                    @Override
+                    protected void notifyError(ErrorType errorType) {
+                        createTaskModelBoundary.notifyError(errorType);
+                    }
+                }
+        );
     }
 }

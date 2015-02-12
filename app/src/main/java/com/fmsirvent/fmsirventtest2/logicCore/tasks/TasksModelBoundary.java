@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by narf on 12/02/15.
  */
-public class TasksModelBoundary implements TasksModelPort{
+public class TasksModelBoundary implements TasksModelPort {
     private TasksLogic activitiesLogic;
     private ApiServiceManager apiServiceManager;
 
@@ -33,12 +33,10 @@ public class TasksModelBoundary implements TasksModelPort{
         apiServiceManager.loadTasks(this, token);
     }
 
-    @Override
     public void notifyTasks(ArrayList<TaskResponse> activitiesResponse) {
         activitiesLogic.notifyTasks(activitiesResponse);
     }
 
-    @Override
     public void notifyError(ErrorType errorType) {
         activitiesLogic.notifyError(errorType);
     }

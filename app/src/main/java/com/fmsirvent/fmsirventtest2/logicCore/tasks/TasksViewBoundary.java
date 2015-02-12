@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by narf on 12/02/15.
  */
-public class TasksViewBoundary  implements TasksViewPort {
+public class TasksViewBoundary implements TasksViewPort {
     private TasksView view;
     private TasksLogic logic;
 

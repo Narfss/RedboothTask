@@ -30,6 +30,9 @@
         <activity android:name=".view.LoginActivity"
             android:label="OAuth2"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.createTask.CreateTask"
+            android:label="Create Task"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
