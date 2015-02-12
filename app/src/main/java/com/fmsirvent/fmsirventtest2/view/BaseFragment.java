@@ -29,5 +29,5 @@ public abstract class BaseFragment extends Fragment implements BaseError {
         }
     }
 
-    abstract void loadData();
+    protected abstract void loadData();
 }
