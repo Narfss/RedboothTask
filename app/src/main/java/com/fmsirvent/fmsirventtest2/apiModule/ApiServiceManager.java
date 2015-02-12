@@ -1,7 +1,10 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
+import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
+import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelPort;
+import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelPort;
 
 import org.apache.http.Header;
 
@@ -29,21 +32,35 @@ public class ApiServiceManager {
 
     public void loadActivities(final ActivitiesModelPort activitiesModelPort, String token) {
         getInstance().loadActivities(token,
-                new Callback<ArrayList<ActivityResponse>>() {
+                new BaseCallback<ArrayList<ActivityResponse>>() {
                     @Override
                     public void onResponse(Response response) {
                         activitiesModelPort.notifyActivities((ArrayList<ActivityResponse>) response.getResult());
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable e, String responseBody, ArrayList<ActivityResponse> errorResponse) {
-                        super.onFailure(statusCode, headers, e, responseBody, errorResponse);
-                        //activitiesModelPort.notifyActivitiesError(int statusCode);
+                    protected void notifyError(ErrorType errorType) {
+                        activitiesModelPort.notifyError(errorType);
                     }
                 }
         );
 
     }
 
+    public void loadTasks(final TasksModelPort tasksModelPort, String token) {
+        getInstance().loadTasks(token,
+                new BaseCallback<ArrayList<TaskResponse>>() {
+                    @Override
+                    public void onResponse(Response response) {
+                        tasksModelPort.notifyTasks((ArrayList<TaskResponse>) response.getResult());
+                    }
 
+                    @Override
+                    protected void notifyError(ErrorType errorType) {
+                        tasksModelPort.notifyError(errorType);
+                    }
+                }
+        );
+
+    }
 }

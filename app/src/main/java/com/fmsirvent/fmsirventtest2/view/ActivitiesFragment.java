@@ -1,10 +1,8 @@
 package com.fmsirvent.fmsirventtest2.view;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,9 +59,6 @@ public class ActivitiesFragment extends BaseFragment implements ActivitiesView {
     public void notifyActivities(ArrayList<ActivityModel> activityModels) {
         this.activityModels = activityModels;
         recyclerView.setAdapter(new ActivitiesAdapter(this.activityModels));
-        for (ActivityModel activityModel : activityModels) {
-            Log.d("Activity", (activityModel.getTitle() != null) ? activityModel.getTitle() : "null");
-        }
     }
 
 }

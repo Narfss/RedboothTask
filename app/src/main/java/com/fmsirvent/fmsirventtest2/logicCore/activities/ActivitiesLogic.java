@@ -42,4 +42,8 @@ public class ActivitiesLogic {
     public void notifyActivities(ArrayList<ActivityResponse> activitiesResponse) {
         activitiesViewPort.notifyActivities(ActivitiesMapper.map(activitiesResponse));
     }
+
+    public void notifyError(ErrorType errorType) {
+        activitiesViewPort.notifyError(errorType);
+    }
 }

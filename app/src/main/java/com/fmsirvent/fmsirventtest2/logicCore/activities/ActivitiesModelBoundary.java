@@ -2,6 +2,7 @@ package com.fmsirvent.fmsirventtest2.logicCore.activities;
 
 import com.fmsirvent.fmsirventtest2.apiModule.ApiServiceManager;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
+import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 
 import java.util.ArrayList;
 
@@ -36,5 +37,10 @@ public class ActivitiesModelBoundary implements ActivitiesModelPort {
     @Override
     public void notifyActivities(ArrayList<ActivityResponse> activitiesResponse) {
         activitiesLogic.notifyActivities(activitiesResponse);
+    }
+
+    @Override
+    public void notifyError(ErrorType errorType) {
+        activitiesLogic.notifyError(errorType);
     }
 }

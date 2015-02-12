@@ -1,6 +1,7 @@
 package com.fmsirvent.fmsirventtest2.logicCore.activities;
 
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
+import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 
 import java.util.ArrayList;
 
@@ -13,4 +14,6 @@ public interface ActivitiesModelPort {
     void loadActivities(String token);
 
     void notifyActivities(ArrayList<ActivityResponse> activitiesResponse);
+
+    void notifyError(ErrorType errorType);
 }
