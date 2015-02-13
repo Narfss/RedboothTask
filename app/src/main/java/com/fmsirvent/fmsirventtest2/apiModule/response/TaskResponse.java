@@ -6,43 +6,6 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * Created by narf on 12/02/15.
  */
 public class TaskResponse {
-    /*
-    {
-    "type": "Task",
-    "created_at": 1383236676,
-    "updated_at": 1414923747,
-    "end_date": null,
-    "last_due_date": null,
-    "start_date": null,
-    "frequency": "none",
-    "id": 7655329,
-    "name": "Get our iOS or Android apps",
-    "task_list_id": 1458440,
-    "comments_count": 1,
-    "assigned_id": null,
-    "is_private": false,
-    "project_id": 824432,
-    "urgent": false,
-    "user_id": 787710,
-    "position": 9,
-    "last_activity_id": null,
-    "record_conversion_type": null,
-    "record_conversion_id": null,
-    "metadata":  { "personal": true},   ///////////////////////////////////7
-    "subtasks_count": 0,
-    "resolved_subtasks_count": 0,
-    "watcher_ids":  [],
-    "description": null,
-    "description_html": "",
-    "description_updated_by_user_id": null,
-    "description_updated_at": 0,
-    "updated_by_id": null,
-    "deleted": false,
-    "row_order": -16383,
-    "status": "new",
-    "due_on": null
-  }
-     */
 
     @JsonProperty("type")
     String type;

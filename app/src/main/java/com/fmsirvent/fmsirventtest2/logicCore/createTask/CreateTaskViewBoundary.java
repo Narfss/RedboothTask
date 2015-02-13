@@ -1,7 +1,10 @@
 package com.fmsirvent.fmsirventtest2.logicCore.createTask;
 
+import com.fmsirvent.fmsirventtest2.logicCore.ActionSuccess;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 import com.fmsirvent.fmsirventtest2.logicCore.LogicFactory;
+
+import java.util.ArrayList;
 
 /**
  * Created by narf on 12/02/15.
@@ -20,8 +23,12 @@ public class CreateTaskViewBoundary implements CreateTaskViewPort {
         return activitiesViewBoundary;
     }
 
-    public void createTask(String name, String description) {
-        logic.createTask(name, description);
+    public void loadTaskLists() {
+        logic.loadTaskLists();
+    }
+
+    public void createTask(int projectId, int taskListId, String name, String description) {
+        logic.createTask(projectId, taskListId, name, description);
     }
 
     public void setLogic(CreateTaskLogic logic) {
@@ -29,12 +36,18 @@ public class CreateTaskViewBoundary implements CreateTaskViewPort {
     }
 
     @Override
-    public void notifyCreateTask() {
-        view.notifyCreateTask();
+    public void notifySuccess(String message, ActionSuccess actionSuccess) {
+        view.notifySuccess(message, actionSuccess);
     }
 
     @Override
     public void notifyError(ErrorType errorType) {
         view.notifyError(errorType);
     }
+
+    @Override
+    public void notifyTaskLists(ArrayList<TaskListModel> taskListModels) {
+        view.notifyTaskLists(taskListModels);
+    }
+
 }

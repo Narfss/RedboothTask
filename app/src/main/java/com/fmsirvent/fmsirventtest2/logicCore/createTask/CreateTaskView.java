@@ -1,13 +1,14 @@
 package com.fmsirvent.fmsirventtest2.logicCore.createTask;
 
-import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
+import com.fmsirvent.fmsirventtest2.logicCore.BaseView;
+
+import java.util.ArrayList;
 
 /**
  * Created by narf on 12/02/15.
  */
-public interface CreateTaskView {
-    void notifyError(ErrorType errorType);
+public interface CreateTaskView extends BaseView {
 
-    void notifyCreateTask();
+    void notifyTaskLists(ArrayList<TaskListModel> taskListModels);
 
 }

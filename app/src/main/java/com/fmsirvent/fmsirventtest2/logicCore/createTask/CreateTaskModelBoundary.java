@@ -1,7 +1,11 @@
 package com.fmsirvent.fmsirventtest2.logicCore.createTask;
 
 import com.fmsirvent.fmsirventtest2.apiModule.ApiServiceManager;
+import com.fmsirvent.fmsirventtest2.apiModule.response.TaskListResponse;
+import com.fmsirvent.fmsirventtest2.logicCore.ActionSuccess;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
+
+import java.util.ArrayList;
 
 /**
  * Created by narf on 13/02/15.
@@ -26,15 +30,24 @@ public class CreateTaskModelBoundary implements CreateTaskModelPort {
     }
 
     @Override
-    public void createTask(String token, String name, String description) {
-        apiServiceManager.createTask(this, token, name, description);
+    public void loadTaskLists(String token) {
+        apiServiceManager.loadTaskLists(this, token);
     }
 
-    public void notifyCreateTask() {
-        activitiesLogic.notifyCreateTask();
+    @Override
+    public void createTask(String token, int projectId, int taskListId, String name, String description) {
+        apiServiceManager.createTask(this, token, projectId, taskListId, name, description);
     }
 
     public void notifyError(ErrorType errorType) {
         activitiesLogic.notifyError(errorType);
+    }
+
+    public void notifyTaskLists(ArrayList<TaskListResponse> taskListResponses) {
+        activitiesLogic.notifyTaskLists(taskListResponses);
+    }
+
+    public void notifySuccess(String message, ActionSuccess actionSuccess) {
+        activitiesLogic.notifySuccess(message, actionSuccess);
     }
 }

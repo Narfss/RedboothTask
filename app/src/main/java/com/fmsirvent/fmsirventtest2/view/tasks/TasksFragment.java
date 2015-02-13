@@ -26,17 +26,18 @@ import butterknife.OnClick;
  */
 public class TasksFragment extends BaseFragment implements TasksView {
 
+
     private TasksViewBoundary tasksViewBoundary;
 
     @InjectView(R.id.activities_list)
     RecyclerView recyclerView;
+    private ArrayList<TaskModel> tasksModels;
+    private TasksAdapter tasksAdapter;
 
     @OnClick(R.id.fab)
     void addNewTask() {
-        getActivity().startActivity(CreateTask.createIntent(getActivity()));
+        startActivityForResult(CreateTask.createIntent(getActivity()), CREATE_ELEMENT);
     }
-
-    private ArrayList<TaskModel> tasksModels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class TasksFragment extends BaseFragment implements TasksView {
     private void configureViews() {
         StaggeredGridLayoutManager llm = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
+        this.tasksModels = new ArrayList<>();
+        tasksAdapter = new TasksAdapter(tasksModels);
+        recyclerView.setAdapter(tasksAdapter);
     }
 
     private void configureBusiness() {
@@ -66,8 +70,9 @@ public class TasksFragment extends BaseFragment implements TasksView {
 
     @Override
     public void notifyTasks(ArrayList<TaskModel> tasksModels) {
-        this.tasksModels = tasksModels;
-        recyclerView.setAdapter(new TasksAdapter(this.tasksModels));
+        this.tasksModels.clear();
+        this.tasksModels.addAll(tasksModels);
+        tasksAdapter.notifyDataSetChanged();
     }
 
 }

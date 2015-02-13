@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 /**
  * Created by narf on 12/02/15.
  */
-public class TasksActivity  extends ActionBarActivity {
+public class TasksActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,5 @@ public class TasksActivity  extends ActionBarActivity {
             getFragmentManager().beginTransaction().add(R.id.container, new TasksFragment()).commit();
         }
     }
-
 
 }

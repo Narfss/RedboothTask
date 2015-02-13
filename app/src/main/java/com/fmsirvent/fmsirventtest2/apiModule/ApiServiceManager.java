@@ -1,21 +1,16 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
-import com.fmsirvent.fmsirventtest2.apiModule.request.TaskRequest;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
+import com.fmsirvent.fmsirventtest2.apiModule.response.TaskListResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
+import com.fmsirvent.fmsirventtest2.logicCore.ActionSuccess;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelBoundary;
-import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelPort;
 import com.fmsirvent.fmsirventtest2.logicCore.createTask.CreateTaskModelBoundary;
-import com.fmsirvent.fmsirventtest2.logicCore.createTask.CreateTaskModelPort;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelBoundary;
-import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelPort;
-
-import org.apache.http.Header;
 
 import java.util.ArrayList;
 
-import ly.apps.android.rest.client.Callback;
 import ly.apps.android.rest.client.Response;
 import ly.apps.android.rest.client.RestClient;
 import ly.apps.android.rest.client.RestClientFactory;
@@ -69,13 +64,32 @@ public class ApiServiceManager {
 
     }
 
-    public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token, String name, String description) {
+    public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token, int projectId, int taskListId, String name, String description) {
         getInstance().createTask(token,
-                new TaskRequest(name, description),
-                new BaseCallback<ArrayList<TaskResponse>>() {
+                projectId,
+                taskListId,
+                name,
+                description,
+                new BaseCallback<TaskResponse>() {
                     @Override
                     public void onResponse(Response response) {
-                        createTaskModelBoundary.notifyCreateTask();
+                        createTaskModelBoundary.notifySuccess("Task crete", ActionSuccess.FINISH);
+                    }
+
+                    @Override
+                    protected void notifyError(ErrorType errorType) {
+                        createTaskModelBoundary.notifyError(errorType);
+                    }
+                }
+        );
+    }
+
+    public void loadTaskLists(final CreateTaskModelBoundary createTaskModelBoundary, String token) {
+        getInstance().loadTaskLists(token,
+                new BaseCallback<ArrayList<TaskListResponse>>() {
+                    @Override
+                    public void onResponse(Response response) {
+                        createTaskModelBoundary.notifyTaskLists((ArrayList<TaskListResponse>) response.getResult());
                     }
 
                     @Override

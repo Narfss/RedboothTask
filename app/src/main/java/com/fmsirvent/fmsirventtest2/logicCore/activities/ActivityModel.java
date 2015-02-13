@@ -4,31 +4,24 @@ package com.fmsirvent.fmsirventtest2.logicCore.activities;
  * Created by narf on 12/02/15.
  */
 public class ActivityModel {
-    String title;
+
     private String type;
-    private String createdAt;
-    private String updatedAt;
-    private String activityId;
-    private String userId;
-    private String projectId;
-    private String targetId;
+    private int createdAt;
+    private int updatedAt;
+    private int activityId;
+    private int userId;
+    private int projectId;
+    private int targetId;
     private String targetType;
     private String commentTarget_id;
     private String action;
-    private String lastActivity_id;
-    private String isPrivate;
+    private int lastActivity_id;
+    private boolean isPrivate;
+    private String title;
     private String body;
     private String assignedId;
     private String previousAssignedId;
     private String dueOn;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public void setType(String type) {
         this.type = type;
@@ -38,53 +31,56 @@ public class ActivityModel {
         return type;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(int createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getCreatedAt() {
+    public int getCreatedAt() {
         return createdAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+
+    public void setUpdatedAt(int updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public String getUpdatedAt() {
+    public int getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setActivityId(String activityId) {
+    public void setActivityId(int activityId) {
         this.activityId = activityId;
     }
 
-    public String getActivityId() {
+    public int getActivityId() {
         return activityId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setProjectId(String projectId) {
+
+    public void setProjectId(int projectId) {
         this.projectId = projectId;
     }
 
-    public String getProjectId() {
+    public int getProjectId() {
         return projectId;
     }
 
-    public void setTargetId(String targetId) {
+    public void setTargetId(int targetId) {
         this.targetId = targetId;
     }
 
-    public String getTargetId() {
+    public int getTargetId() {
         return targetId;
     }
+
 
     public void setTargetType(String targetType) {
         this.targetType = targetType;
@@ -110,20 +106,32 @@ public class ActivityModel {
         return action;
     }
 
-    public void setLastActivity_id(String lastActivity_id) {
+    public void setLastActivity_id(int lastActivity_id) {
         this.lastActivity_id = lastActivity_id;
     }
 
-    public String getLastActivity_id() {
+    public int getLastActivity_id() {
         return lastActivity_id;
     }
 
-    public void setIsPrivate(String isPrivate) {
+    public void setIsPrivate(boolean isPrivate) {
         this.isPrivate = isPrivate;
     }
 
-    public String getIsPrivate() {
+    public boolean isPrivate() {
         return isPrivate;
+    }
+
+    public void setPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setBody(String body) {

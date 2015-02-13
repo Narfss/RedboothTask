@@ -1,6 +1,7 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
+import com.fmsirvent.fmsirventtest2.apiModule.response.TaskListResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
 
 import java.util.ArrayList;
@@ -27,8 +28,17 @@ public interface ApiServices {
             @QueryParam("access_token") String token,
             Callback<ArrayList<TaskResponse>> callback);
 
+    @GET("api/3/task_lists")
+    void loadTaskLists(
+            @QueryParam("access_token") String token,
+            Callback<ArrayList<TaskListResponse>> callback);
+
     @POST("api/3/tasks")
     void createTask(
             @QueryParam("access_token") String token,
-            Callback<ArrayList<TaskResponse>> callback);
+            @QueryParam("project_id") int projectId,
+            @QueryParam("task_list_id") int taskListId,
+            @QueryParam("name") String name,
+            @QueryParam("description") String description,
+            Callback<TaskResponse> callback);
 }

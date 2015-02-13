@@ -23,7 +23,7 @@ public class ActivitiesMapper {
             activityModel.setCommentTarget_id(activityResponse.getCommentTargetId());
             activityModel.setAction(activityResponse.getAction());
             activityModel.setLastActivity_id(activityResponse.getLastActivityId());
-            activityModel.setIsPrivate(activityResponse.getIsPrivate());
+            activityModel.setIsPrivate(activityResponse.isPrivate());
             activityModel.setTitle(activityResponse.getTitle());
             activityModel.setBody(activityResponse.getBody());
             activityModel.setAssignedId(activityResponse.getAssignedId());
