@@ -35,7 +35,7 @@ public class ActivitiesLogic {
         if (token != null) {
             activitiesModelPort.loadActivities(token);
         } else {
-            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL);
+            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL, null);
         }
     }
 
@@ -43,7 +43,7 @@ public class ActivitiesLogic {
         activitiesViewPort.notifyActivities(ActivitiesMapper.map(activitiesResponse));
     }
 
-    public void notifyError(ErrorType errorType) {
-        activitiesViewPort.notifyError(errorType);
+    public void notifyError(ErrorType errorType, String message) {
+        activitiesViewPort.notifyError(errorType, message);
     }
 }

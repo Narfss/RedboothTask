@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">FMSirventTest2</string>
+    <string name="app_name">Redbooth tasks</string>
 
     <string name="autho">Autorizar</string>
+    <string name="created_task">Task created</string>
+    <string name="connection_error">Connection error</string>
 </resources>

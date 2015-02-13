@@ -53,11 +53,13 @@ public class ActivitiesFragment extends BaseFragment implements ActivitiesView {
 
     @Override
     protected void loadData() {
+        enableLoading(true);
         activitiesViewBoundary.loadActivities();
     }
 
     @Override
     public void notifyActivities(ArrayList<ActivityModel> activityModels) {
+        enableLoading(false);
         this.activityModels = activityModels;
         recyclerView.setAdapter(new ActivitiesAdapter(this.activityModels));
     }

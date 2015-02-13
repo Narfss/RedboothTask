@@ -106,6 +106,9 @@ public class TaskResponse {
     @JsonProperty("due_on")
     String dueOn;
 
+    @JsonProperty("error")
+    BaseErrorResponse error;
+
     public String getType() {
         return type;
     }
@@ -229,5 +232,6 @@ public class TaskResponse {
     public String getDueOn() {
         return dueOn;
     }
+
 }
 

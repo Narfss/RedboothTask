@@ -41,8 +41,8 @@ public class CreateTaskViewBoundary implements CreateTaskViewPort {
     }
 
     @Override
-    public void notifyError(ErrorType errorType) {
-        view.notifyError(errorType);
+    public void notifyError(ErrorType errorType, String message) {
+        view.notifyError(errorType, message);
     }
 
     @Override

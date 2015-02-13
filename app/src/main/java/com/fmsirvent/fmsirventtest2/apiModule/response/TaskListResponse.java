@@ -61,6 +61,9 @@ public class TaskListResponse {
     @JsonProperty("completed_at")
     String completedAt;
 
+    @JsonProperty("error")
+    BaseErrorResponse error;
+
     public String getType() {
         return type;
     }

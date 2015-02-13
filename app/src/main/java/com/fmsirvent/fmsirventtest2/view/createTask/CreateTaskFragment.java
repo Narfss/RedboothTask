@@ -36,7 +36,7 @@ public class CreateTaskFragment extends BaseFragment implements CreateTaskView {
 
     @OnClick(R.id.fab)
     void createTask() {
-        //Todo: check empty edittext
+        enableLoading(true);
         TaskListModel taskListModel = (TaskListModel) taskList.getSelectedItem();
         createTaskViewBoundary.createTask(
                 taskListModel.getProjectId(),
@@ -66,11 +66,13 @@ public class CreateTaskFragment extends BaseFragment implements CreateTaskView {
 
     @Override
     protected void loadData() {
+        enableLoading(true);
         createTaskViewBoundary.loadTaskLists();
     }
 
     @Override
     public void notifyTaskLists(ArrayList<TaskListModel> taskListModels) {
+        enableLoading(false);
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, taskListModels);
         taskList.setAdapter(adapter);
     }

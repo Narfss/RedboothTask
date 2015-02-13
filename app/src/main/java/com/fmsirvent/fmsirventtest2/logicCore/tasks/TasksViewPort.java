@@ -10,5 +10,5 @@ import java.util.ArrayList;
 public interface TasksViewPort {
     void notifyTasks(ArrayList<TaskModel> activityModels);
 
-    void notifyError(ErrorType errorType);
+    void notifyError(ErrorType errorType, String message);
 }

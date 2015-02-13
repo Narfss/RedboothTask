@@ -10,5 +10,5 @@ import java.util.ArrayList;
 public interface ActivitiesViewPort {
     void notifyActivities(ArrayList<ActivityModel> activityModels);
 
-    void notifyError(ErrorType errorType);
+    void notifyError(ErrorType errorType, String message);
 }

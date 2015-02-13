@@ -26,7 +26,6 @@ import butterknife.OnClick;
  */
 public class TasksFragment extends BaseFragment implements TasksView {
 
-
     private TasksViewBoundary tasksViewBoundary;
 
     @InjectView(R.id.activities_list)
@@ -65,11 +64,13 @@ public class TasksFragment extends BaseFragment implements TasksView {
 
     @Override
     protected void loadData() {
+        enableLoading(true);
         tasksViewBoundary.loadTasks();
     }
 
     @Override
     public void notifyTasks(ArrayList<TaskModel> tasksModels) {
+        enableLoading(false);
         this.tasksModels.clear();
         this.tasksModels.addAll(tasksModels);
         tasksAdapter.notifyDataSetChanged();

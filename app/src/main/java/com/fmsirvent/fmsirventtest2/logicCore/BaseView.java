@@ -5,7 +5,7 @@ package com.fmsirvent.fmsirventtest2.logicCore;
  */
 public interface BaseView {
 
-    void notifyError(ErrorType errorType);
+    void notifyError(ErrorType errorType, String message);
 
     void notifySuccess(String message, ActionSuccess actionSuccess);
 }

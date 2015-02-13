@@ -1,5 +1,6 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
+import com.fmsirvent.fmsirventtest2.R;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskListResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
@@ -39,8 +40,8 @@ public class ApiServiceManager {
                     }
 
                     @Override
-                    protected void notifyError(ErrorType errorType) {
-                        activitiesModelBoundary.notifyError(errorType);
+                    protected void notifyError(ErrorType errorType, String message) {
+                        activitiesModelBoundary.notifyError(errorType, message);
                     }
                 }
         );
@@ -56,8 +57,8 @@ public class ApiServiceManager {
                     }
 
                     @Override
-                    protected void notifyError(ErrorType errorType) {
-                        tasksModelBoundary.notifyError(errorType);
+                    protected void notifyError(ErrorType errorType, String message) {
+                        tasksModelBoundary.notifyError(errorType, message);
                     }
                 }
         );
@@ -73,12 +74,12 @@ public class ApiServiceManager {
                 new BaseCallback<TaskResponse>() {
                     @Override
                     public void onResponse(Response response) {
-                        createTaskModelBoundary.notifySuccess("Task crete", ActionSuccess.FINISH);
+                        createTaskModelBoundary.notifySuccess(getAppContext().getString(R.string.created_task), ActionSuccess.FINISH);
                     }
 
                     @Override
-                    protected void notifyError(ErrorType errorType) {
-                        createTaskModelBoundary.notifyError(errorType);
+                    protected void notifyError(ErrorType errorType, String message) {
+                        createTaskModelBoundary.notifyError(errorType, message);
                     }
                 }
         );
@@ -93,8 +94,8 @@ public class ApiServiceManager {
                     }
 
                     @Override
-                    protected void notifyError(ErrorType errorType) {
-                        createTaskModelBoundary.notifyError(errorType);
+                    protected void notifyError(ErrorType errorType, String message) {
+                        createTaskModelBoundary.notifyError(errorType, message);
                     }
                 }
         );

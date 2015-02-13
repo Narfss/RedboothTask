@@ -39,8 +39,8 @@ public class CreateTaskModelBoundary implements CreateTaskModelPort {
         apiServiceManager.createTask(this, token, projectId, taskListId, name, description);
     }
 
-    public void notifyError(ErrorType errorType) {
-        activitiesLogic.notifyError(errorType);
+    public void notifyError(ErrorType errorType, String message) {
+        activitiesLogic.notifyError(errorType, message);
     }
 
     public void notifyTaskLists(ArrayList<TaskListResponse> taskListResponses) {

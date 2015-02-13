@@ -36,7 +36,7 @@ public class CreateTaskLogic {
         if (token != null) {
             activitiesModelPort.loadTaskLists(token);
         } else {
-            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL);
+            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL, null);
         }
     }
 
@@ -45,12 +45,12 @@ public class CreateTaskLogic {
         if (token != null) {
             activitiesModelPort.createTask(token, projectId, taskList, name, description);
         } else {
-            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL);
+            activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL, null);
         }
     }
 
-    public void notifyError(ErrorType errorType) {
-        activitiesViewPort.notifyError(errorType);
+    public void notifyError(ErrorType errorType, String message) {
+        activitiesViewPort.notifyError(errorType, message);
     }
 
     public void notifyTaskLists(ArrayList<TaskListResponse> taskListResponses) {

@@ -38,7 +38,7 @@ public class ActivitiesModelBoundary implements ActivitiesModelPort {
         activitiesLogic.notifyActivities(activitiesResponse);
     }
 
-    public void notifyError(ErrorType errorType) {
-        activitiesLogic.notifyError(errorType);
+    public void notifyError(ErrorType errorType, String message) {
+        activitiesLogic.notifyError(errorType, message);
     }
 }
