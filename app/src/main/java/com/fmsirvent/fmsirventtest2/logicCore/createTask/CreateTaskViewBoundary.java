@@ -20,8 +20,8 @@ public class CreateTaskViewBoundary implements CreateTaskViewPort {
         return activitiesViewBoundary;
     }
 
-    public void createTask() {
-        logic.createTask();
+    public void createTask(String name, String description) {
+        logic.createTask(name, description);
     }
 
     public void setLogic(CreateTaskLogic logic) {

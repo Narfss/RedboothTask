@@ -26,8 +26,8 @@ public class CreateTaskModelBoundary implements CreateTaskModelPort {
     }
 
     @Override
-    public void createTask(String token) {
-        apiServiceManager.createTask(this, token);
+    public void createTask(String token, String name, String description) {
+        apiServiceManager.createTask(this, token, name, description);
     }
 
     public void notifyCreateTask() {

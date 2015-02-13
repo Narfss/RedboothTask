@@ -6,5 +6,5 @@ package com.fmsirvent.fmsirventtest2.logicCore.createTask;
 public interface CreateTaskModelPort {
     void setLogic(CreateTaskLogic createTaskLogic);
 
-    void createTask(String token);
+    void createTask(String token, String name, String description);
 }

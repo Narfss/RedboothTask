@@ -1,5 +1,6 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
+import com.fmsirvent.fmsirventtest2.apiModule.request.TaskRequest;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ActivityResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
@@ -68,8 +69,9 @@ public class ApiServiceManager {
 
     }
 
-    public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token) {
+    public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token, String name, String description) {
         getInstance().createTask(token,
+                new TaskRequest(name, description),
                 new BaseCallback<ArrayList<TaskResponse>>() {
                     @Override
                     public void onResponse(Response response) {

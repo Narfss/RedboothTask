@@ -27,10 +27,10 @@ public class CreateTaskLogic {
         activitiesModelPort.setLogic(this);
     }
 
-    public void createTask() {
+    public void createTask(String name, String description) {
         String token = dataModulePort.getToken();
         if (token != null) {
-            activitiesModelPort.createTask(token);
+            activitiesModelPort.createTask(token, name, description);
         } else {
             activitiesViewPort.notifyError(ErrorType.TOKEN_FAIL);
         }
