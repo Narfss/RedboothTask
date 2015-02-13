@@ -1,6 +1,8 @@
 package com.fmsirvent.fmsirventtest2.view.tasks;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
 import com.fmsirvent.fmsirventtest2.R;
@@ -19,11 +21,14 @@ public class TasksActivity extends ActionBarActivity {
     }
 
     private void configureViews(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            setContentView(R.layout.activity_main);
-            ButterKnife.inject(this);
-            getFragmentManager().beginTransaction().add(R.id.container, new TasksFragment()).commit();
+        setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+        getFragmentManager().beginTransaction().add(R.id.container, new TasksFragment()).commit();
+
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setDisplayShowCustomEnabled(true);
+            supportActionBar.setCustomView(R.layout.ab_layout);
         }
     }
-
 }

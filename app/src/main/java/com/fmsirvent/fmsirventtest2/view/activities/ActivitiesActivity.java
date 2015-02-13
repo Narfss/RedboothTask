@@ -17,10 +17,8 @@ public class ActivitiesActivity extends ActionBarActivity {
     }
 
     private void configureViews(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            setContentView(R.layout.activity_main);
-            ButterKnife.inject(this);
-            getFragmentManager().beginTransaction().add(R.id.container, new ActivitiesFragment()).commit();
-        }
+        setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+        getFragmentManager().beginTransaction().add(R.id.container, new ActivitiesFragment()).commit();
     }
 }

@@ -81,7 +81,7 @@ public abstract class BaseFragment extends Fragment implements BaseError {
                 switch (actionSuccess) {
                     case FINISH:
                         getActivity().setResult(Activity.RESULT_OK, new Intent());
-                        getActivity().finish();
+                        getActivity().onBackPressed();
                         break;
                     case RELOAD:
                         loadData();
@@ -127,7 +127,7 @@ public abstract class BaseFragment extends Fragment implements BaseError {
                 backgroundImage.setImageResource(R.mipmap.ic_undefined_error);
                 break;
         }
-        backgroundMessage.setText((message != null) ? message : getString(R.string.connection_error));
+        backgroundMessage.setText(((message != null) ? message : getString(R.string.connection_error)) + getString(R.string.press_to_continue));
 
     }
 }

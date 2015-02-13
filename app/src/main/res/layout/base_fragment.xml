@@ -8,7 +8,7 @@
         android:id="@+id/background_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#bbffffff"
+        android:background="@color/white_transparent"
         android:visibility="gone">
 
         <ProgressBar
@@ -23,7 +23,7 @@
         android:id="@+id/background_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#bbffffff"
+        android:background="@color/white_transparent"
         android:visibility="gone">
 
         <LinearLayout
@@ -42,7 +42,8 @@
                 android:id="@+id/background_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#7c7c7c"/>
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_gray"/>
         </LinearLayout>
 
     </FrameLayout>

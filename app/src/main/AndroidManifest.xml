@@ -29,10 +29,12 @@
 
         <activity android:name=".view.LoginActivity"
             android:label="OAuth2"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTransparent"/>
         <activity android:name=".view.createTask.CreateTask"
             android:label="Create Task"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTransparent"/>
     </application>
 
 </manifest>

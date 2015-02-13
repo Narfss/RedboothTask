@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#55FFFFFF">
@@ -9,18 +10,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
-        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/task_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            card_view:cardCornerRadius="4dp">
+            android:layout_margin="@dimen/margin_normal"
+            card_view:cardCornerRadius="@dimen/corner_radius">
 
             <LinearLayout
-                android:layout_width="280dp"
+                android:layout_width="@dimen/card_width_min"
                 android:layout_height="match_parent"
-                android:layout_margin="6dp"
+                android:layout_margin="@dimen/margin_normal"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -32,10 +33,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Task list:"
-                        android:textColor="@android:color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:text="@string/task_list"
+                        style="@style/text_title" />
 
                     <Spinner
                         android:id="@+id/task_list_spinner_date"
@@ -50,23 +49,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="Nombre"
+                    android:hint="@string/task_name"
                     android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    style="@style/text_title" />
 
                 <EditText
                     android:id="@+id/create_task_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top|start"
-                    android:hint="Description"
+                    android:hint="@string/task_description"
                     android:inputType="textMultiLine"
                     android:lines="10"
                     android:scrollbars="vertical"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp" />
+                    style="@style/text_regular" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -77,8 +73,7 @@
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="@dimen/margin_large"
         android:background="@drawable/circular_green"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_action_done" />

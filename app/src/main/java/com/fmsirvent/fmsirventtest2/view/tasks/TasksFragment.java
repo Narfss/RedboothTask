@@ -36,6 +36,7 @@ public class TasksFragment extends BaseFragment implements TasksView {
     @OnClick(R.id.fab)
     void addNewTask() {
         startActivityForResult(CreateTask.createIntent(getActivity()), CREATE_ELEMENT);
+        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     @Override

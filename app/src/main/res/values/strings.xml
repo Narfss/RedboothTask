@@ -4,4 +4,8 @@
     <string name="autho">Autorizar</string>
     <string name="created_task">Task created</string>
     <string name="connection_error">Connection error</string>
+    <string name="task_list">Task list:</string>
+    <string name="task_name">Name</string>
+    <string name="task_description">Description</string>
+    <string name="press_to_continue">\n(press to continue)</string>
 </resources>
