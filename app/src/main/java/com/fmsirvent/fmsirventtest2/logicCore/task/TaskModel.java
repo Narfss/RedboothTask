@@ -1,4 +1,4 @@
-package com.fmsirvent.fmsirventtest2.logicCore.tasks;
+package com.fmsirvent.fmsirventtest2.logicCore.task;
 
 /**
  * Created by narf on 12/02/15.

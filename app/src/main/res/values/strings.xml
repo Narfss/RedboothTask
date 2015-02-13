@@ -8,4 +8,7 @@
     <string name="task_name">Name</string>
     <string name="task_description">Description</string>
     <string name="press_to_continue">\n(press to continue)</string>
+    <string name="task_title">Task</string>
+    <string name="create_task">Create Task</string>
+    <string name="oauth2_title">OAuth2</string>
 </resources>

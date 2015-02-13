@@ -2,6 +2,8 @@ package com.fmsirvent.fmsirventtest2.logicCore.tasks;
 
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 import com.fmsirvent.fmsirventtest2.logicCore.LogicFactory;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModel;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TasksLogic;
 
 import java.util.ArrayList;
 
@@ -17,9 +19,9 @@ public class TasksViewBoundary implements TasksViewPort {
     }
 
     public static TasksViewBoundary newInstance(TasksView activitiesView) {
-        TasksViewBoundary activitiesViewBoundary = new TasksViewBoundary(activitiesView);
-        activitiesViewBoundary.setLogic(LogicFactory.getTasksCore(activitiesViewBoundary));
-        return activitiesViewBoundary;
+        TasksViewBoundary tasksViewBoundary = new TasksViewBoundary(activitiesView);
+        tasksViewBoundary.setLogic(LogicFactory.getTasksCore(tasksViewBoundary));
+        return tasksViewBoundary;
     }
 
     public void loadTasks() {
@@ -31,8 +33,8 @@ public class TasksViewBoundary implements TasksViewPort {
     }
 
     @Override
-    public void notifyTasks(ArrayList<TaskModel> activityModels) {
-        view.notifyTasks(activityModels);
+    public void notifyTasks(ArrayList<TaskModel> taskModels) {
+        view.notifyTasks(taskModels);
     }
 
     @Override

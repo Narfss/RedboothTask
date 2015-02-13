@@ -3,6 +3,7 @@ package com.fmsirvent.fmsirventtest2.logicCore.tasks;
 import com.fmsirvent.fmsirventtest2.apiModule.ApiServiceManager;
 import com.fmsirvent.fmsirventtest2.apiModule.response.TaskResponse;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TasksLogic;
 
 import java.util.ArrayList;
 
@@ -33,8 +34,8 @@ public class TasksModelBoundary implements TasksModelPort {
         apiServiceManager.loadTasks(this, token);
     }
 
-    public void notifyTasks(ArrayList<TaskResponse> activitiesResponse) {
-        activitiesLogic.notifyTasks(activitiesResponse);
+    public void notifyTasks(ArrayList<TaskResponse> tasksResponse) {
+        activitiesLogic.notifyTasks(tasksResponse);
     }
 
     public void notifyError(ErrorType errorType, String message) {

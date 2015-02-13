@@ -5,21 +5,24 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.fmsirvent.fmsirventtest2.R;
-import com.fmsirvent.fmsirventtest2.logicCore.tasks.TaskModel;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModel;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksView;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksViewBoundary;
 import com.fmsirvent.fmsirventtest2.view.BaseFragment;
 import com.fmsirvent.fmsirventtest2.view.createTask.CreateTask;
+import com.fmsirvent.fmsirventtest2.view.task.TaskActivity;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnItemSelected;
 
 /**
  * Created by narf on 12/02/15.
@@ -35,7 +38,12 @@ public class TasksFragment extends BaseFragment implements TasksView {
 
     @OnClick(R.id.fab)
     void addNewTask() {
-        startActivityForResult(CreateTask.createIntent(getActivity()), CREATE_ELEMENT);
+        startActivityForResult(CreateTask.createIntent(getActivity()), EDIT_EVENT);
+        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    void itemSelected(int position) {
+        startActivityForResult(TaskActivity.createIntent(getActivity(), tasksModels.get(position).getId()), EDIT_EVENT);
         getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 

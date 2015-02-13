@@ -28,13 +28,20 @@
         </activity>
 
         <activity android:name=".view.LoginActivity"
-            android:label="OAuth2"
+            android:label="@string/oauth2_title"
             android:screenOrientation="portrait"
             android:theme="@style/activityTransparent"/>
+
         <activity android:name=".view.createTask.CreateTask"
-            android:label="Create Task"
+            android:label="@string/create_task"
             android:screenOrientation="portrait"
             android:theme="@style/activityTransparent"/>
+
+        <activity android:name=".view.task.TaskActivity"
+            android:label="@string/task_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/activityTransparent"/>
+
     </application>
 
 </manifest>

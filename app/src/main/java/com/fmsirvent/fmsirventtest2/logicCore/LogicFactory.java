@@ -10,7 +10,11 @@ import com.fmsirvent.fmsirventtest2.logicCore.data.DataModuleBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.login.LoginLogic;
 import com.fmsirvent.fmsirventtest2.logicCore.login.LoginModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.login.LoginViewPort;
-import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksLogic;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskLogic;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModelBoundary;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskViewBoundary;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskViewPort;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TasksLogic;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksViewPort;
 
@@ -39,6 +43,12 @@ public class LogicFactory {
     public static CreateTaskLogic getCreateTaskCore(CreateTaskViewPort createTaskViewPort) {
         return CreateTaskLogic.newInstance(createTaskViewPort,
                 CreateTaskModelBoundary.newInstance(),
+                DataModuleBoundary.newInstance());
+    }
+
+    public static TaskLogic getTaskCore(TaskViewPort taskViewPort) {
+        return TaskLogic.newInstance(taskViewPort,
+                TaskModelBoundary.newInstance(),
                 DataModuleBoundary.newInstance());
     }
 }

@@ -24,7 +24,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 public abstract class BaseFragment extends Fragment implements BaseError {
 
     public static final int OAUTH_UPDATE = 1;
-    public static final int CREATE_ELEMENT = 2;
+    public static final int EDIT_EVENT = 2;
 
     @InjectView(R.id.background_loading)
     protected FrameLayout backgroundLoading;
@@ -41,7 +41,7 @@ public abstract class BaseFragment extends Fragment implements BaseError {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == OAUTH_UPDATE) {
             loadData();
-        } else if (requestCode == CREATE_ELEMENT
+        } else if (requestCode == EDIT_EVENT
                 && resultCode == Activity.RESULT_OK) {
             loadData();
         }

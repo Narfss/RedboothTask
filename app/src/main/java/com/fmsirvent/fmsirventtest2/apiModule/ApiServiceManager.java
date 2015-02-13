@@ -8,6 +8,7 @@ import com.fmsirvent.fmsirventtest2.logicCore.ActionSuccess;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 import com.fmsirvent.fmsirventtest2.logicCore.activities.ActivitiesModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.createTask.CreateTaskModelBoundary;
+import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelBoundary;
 
 import java.util.ArrayList;
@@ -62,7 +63,6 @@ public class ApiServiceManager {
                     }
                 }
         );
-
     }
 
     public void createTask(final CreateTaskModelBoundary createTaskModelBoundary, String token, int projectId, int taskListId, String name, String description) {
@@ -96,6 +96,23 @@ public class ApiServiceManager {
                     @Override
                     protected void notifyError(ErrorType errorType, String message) {
                         createTaskModelBoundary.notifyError(errorType, message);
+                    }
+                }
+        );
+    }
+
+    public void loadTask(final TaskModelBoundary taskModelBoundary, String token, int taskId) {
+        getInstance().loadTask(token,
+                taskId,
+                new BaseCallback<TaskResponse>() {
+                    @Override
+                    public void onResponse(Response response) {
+                        taskModelBoundary.notifyTask((TaskResponse) response.getResult());
+                    }
+
+                    @Override
+                    protected void notifyError(ErrorType errorType, String message) {
+                        taskModelBoundary.notifyError(errorType, message);
                     }
                 }
         );

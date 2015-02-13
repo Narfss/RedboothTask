@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import ly.apps.android.rest.client.Callback;
 import ly.apps.android.rest.client.annotations.GET;
 import ly.apps.android.rest.client.annotations.POST;
+import ly.apps.android.rest.client.annotations.Path;
 import ly.apps.android.rest.client.annotations.QueryParam;
 import ly.apps.android.rest.client.annotations.RestService;
 
@@ -27,6 +28,12 @@ public interface ApiServices {
     void loadTasks(
             @QueryParam("access_token") String token,
             Callback<ArrayList<TaskResponse>> callback);
+
+    @GET("api/3/tasks/{id}")
+    void loadTask(
+            @QueryParam("access_token") String token,
+            @Path("id") int taskId,
+            Callback<TaskResponse> callback);
 
     @GET("api/3/task_lists")
     void loadTaskLists(
