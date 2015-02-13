@@ -1,6 +1,5 @@
 package com.fmsirvent.fmsirventtest2.apiModule;
 
-import com.fmsirvent.fmsirventtest2.apiModule.response.BaseErrorResponse;
 import com.fmsirvent.fmsirventtest2.apiModule.response.ErrorResponse;
 import com.fmsirvent.fmsirventtest2.logicCore.ErrorType;
 
@@ -8,6 +7,7 @@ import org.apache.http.Header;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 
 import ly.apps.android.rest.client.Callback;
 
@@ -38,10 +38,10 @@ public abstract class BaseCallback<Response> extends Callback<Response> {
         }
         String message = (error != null) ? error.getFirstError() : null;
         switch (statusCode) {
-            case 400:
+            case HttpURLConnection.HTTP_BAD_REQUEST:
                 notifyError(ErrorType.UNPROCESSABLE_ENTITY, message);
                 break;
-            case 401:
+            case HttpURLConnection.HTTP_UNAUTHORIZED:
                 notifyError(ErrorType.TOKEN_FAIL, message);
                 break;
             default:

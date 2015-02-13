@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Redbooth tasks</string>
-
     <string name="autho">Autorizar</string>
     <string name="created_task">Task created</string>
     <string name="connection_error">Connection error</string>
@@ -11,4 +10,7 @@
     <string name="task_title">Task</string>
     <string name="create_task">Create Task</string>
     <string name="oauth2_title">OAuth2</string>
+    <string name="oauth2_client_id" translatable="false">61e53f179fa7849edb35f0a70f15199ae52bdab1b53e247f5bad24e00b7527bc</string>
+    <string name="oauth2_redirect_uri" translatable="false" formatted="false"><![CDATA[http://fmsirvent.com]]></string>
+    <string name="oauth2_service_url" translatable="false" formatted="false"><![CDATA[https://redbooth.com/oauth2/authorize?client_id=%s&response_type=token&redirect_uri=%s]]></string>
 </resources>

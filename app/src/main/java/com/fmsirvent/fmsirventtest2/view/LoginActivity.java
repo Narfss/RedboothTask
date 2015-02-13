@@ -21,6 +21,9 @@ import butterknife.InjectView;
  */
 public class LoginActivity extends ActionBarActivity implements LoginView {
 
+    public static final String ACCESS_TOKEN = "access_token";
+    public static final String TOKEN_TYPE = "token_type";
+    public static final String EXPIRES_IN = "expires_in";
     LoginViewBoundary loginViewBoundary;
 
     @InjectView(R.id.oauth2_webview)
@@ -41,9 +44,9 @@ public class LoginActivity extends ActionBarActivity implements LoginView {
     }
 
     private void openurl() {
-        String clientID = "61e53f179fa7849edb35f0a70f15199ae52bdab1b53e247f5bad24e00b7527bc";
-        String redirectUri = "http%3A%2F%2Ffmsirvent.com";
-        String url = "https://redbooth.com/oauth2/authorize?client_id="+ clientID +"&response_type=token&redirect_uri="+ redirectUri;
+        String clientID = getString(R.string.oauth2_client_id);
+        String redirectUri = getString(R.string.oauth2_redirect_uri);
+        String url = String.format(getString(R.string.oauth2_service_url), clientID, redirectUri);
         oauth2Webview.loadUrl(url);
         oauth2Webview.setVisibility(View.VISIBLE);
     }
@@ -54,11 +57,11 @@ public class LoginActivity extends ActionBarActivity implements LoginView {
 
         oauth2Webview.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url){
-                if (url.startsWith("http://fmsirvent.com")) {
+                if (url.startsWith(getString(R.string.oauth2_redirect_uri))) {
                     Uri uri = Uri.parse(url.replace("#","?"));
-                    String access_token = uri.getQueryParameter("access_token");
-                    String token_type = uri.getQueryParameter("token_type");
-                    String expires_in = uri.getQueryParameter("expires_in");
+                    String access_token = uri.getQueryParameter(ACCESS_TOKEN);
+                    String token_type = uri.getQueryParameter(TOKEN_TYPE);
+                    String expires_in = uri.getQueryParameter(EXPIRES_IN);
 
                     oauth2Webview.setVisibility(View.GONE);
                     loginViewBoundary.saveToken(access_token, token_type, expires_in);

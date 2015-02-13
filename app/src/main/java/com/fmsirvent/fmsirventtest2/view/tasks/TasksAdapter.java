@@ -1,7 +1,6 @@
 package com.fmsirvent.fmsirventtest2.view.tasks;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModel;
 import com.fmsirvent.fmsirventtest2.view.BaseFragment;
 import com.fmsirvent.fmsirventtest2.view.task.TaskActivity;
 
-import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 /**

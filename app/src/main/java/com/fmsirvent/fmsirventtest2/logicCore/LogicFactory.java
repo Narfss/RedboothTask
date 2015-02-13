@@ -12,7 +12,6 @@ import com.fmsirvent.fmsirventtest2.logicCore.login.LoginModelBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.login.LoginViewPort;
 import com.fmsirvent.fmsirventtest2.logicCore.task.TaskLogic;
 import com.fmsirvent.fmsirventtest2.logicCore.task.TaskModelBoundary;
-import com.fmsirvent.fmsirventtest2.logicCore.task.TaskViewBoundary;
 import com.fmsirvent.fmsirventtest2.logicCore.task.TaskViewPort;
 import com.fmsirvent.fmsirventtest2.logicCore.task.TasksLogic;
 import com.fmsirvent.fmsirventtest2.logicCore.tasks.TasksModelBoundary;
