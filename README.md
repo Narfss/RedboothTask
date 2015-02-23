@@ -56,6 +56,9 @@ All the fragments extends from [BaseFragment](https://github.com/Narfss/Redbooth
 With this BaseFragment dependency the abstract function *loadData()* must be implemented. This function will be called in case of an error or having to reload data.
 To the portView interface the function *notifyError* and *notifySuccess* will be also accesible.
 
+Known problems and errors
+-------------------------
+With the intention of simplify the logic, the module dataModule, is not integrated in the core in the right way as 'clean code' definition. DataModule is considered without delay, the answer is a return.
 
 Used libraries
 ----------
